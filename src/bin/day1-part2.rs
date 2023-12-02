@@ -3,7 +3,7 @@ use std::fs::read_to_string;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let filename = "./input.txt";
+    let filename = "./inputs/day1/input.txt";
 
     // Array to store all calibration values
     let mut calibration_values: Vec<i32> = Vec::new();
