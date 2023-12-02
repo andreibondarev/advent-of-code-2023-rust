@@ -94,8 +94,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Sum all calibration values
     let sum: i32 = calibration_values.iter().sum();
-    // Print the answer to Part 1
-    println!("{:?}", sum);
+    // Print the answer to Day 1 Part 1
+    println!("Answer: {:?}", sum);
 
     Ok(())
 }
