@@ -1,4 +1,3 @@
-use tokio;
 use regex::Regex;
 use std::fs::read_to_string;
 
@@ -8,7 +7,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
   let content = read_to_string(filename).unwrap();
   let lines: Vec<&str> = content.lines().collect();
 
-  let special_symbols = vec!['/', '-', '*', '$', '@', '=', '#', '&', '+', '%'];
+  let special_symbols = ['/', '-', '*', '$', '@', '=', '#', '&', '+', '%'];
   let mut values_to_be_summed: Vec<i32> = Vec::new();
   
   for (index, line) in lines.iter().enumerate() {

@@ -1,4 +1,3 @@
-use tokio;
 use regex::Regex;
 use std::fs::read_to_string;
 use std::collections::HashMap;
@@ -9,7 +8,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
   let content = read_to_string(filename).unwrap();
   let lines: Vec<&str> = content.lines().collect();
 
-  let special_symbols = vec!['*'];
+  let special_symbols = ['*'];
   
   let mut gears: HashMap<String, Vec<i32>> = HashMap::new();
 
@@ -52,7 +51,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   gear.push(part);
               },
               None => {
-                  let mut vector: Vec<i32> = Vec::new();
+                  let mut vector: Vec<i32> = vec![];
                   vector.push(part);
 
                   gears.insert(key.clone(), vector);
@@ -71,7 +70,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   gear.push(part);
               },
               None => {
-                  let mut vector: Vec<i32> = Vec::new();
+                  let mut vector: Vec<i32> = vec![];
                   vector.push(part);
 
                   gears.insert(key.clone(), vector);
@@ -92,7 +91,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   gear.push(part);
               },
               None => {
-                  let mut vector: Vec<i32> = Vec::new();
+                  let mut vector: Vec<i32> = vec![];
                   vector.push(part);
 
                   gears.insert(key.clone(), vector);
@@ -113,7 +112,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   gear.push(part);
               },
               None => {
-                  let mut vector: Vec<i32> = Vec::new();
+                  let mut vector: Vec<i32> = vec![];
                   vector.push(part);
 
                   gears.insert(key.clone(), vector);

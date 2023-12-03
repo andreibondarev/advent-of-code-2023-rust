@@ -1,4 +1,3 @@
-use tokio;
 use std::fs::read_to_string;
 use regex::Regex;
 
@@ -55,7 +54,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 fn extract_game_number(game_str: &str) -> Option<i32> {
   let re = Regex::new(r"Game (\d+)").unwrap();
   re.captures(game_str).and_then(|cap| {
-      cap.get(1).map(|match_| match_.as_str().parse::<i32>().ok()).flatten()
+      cap.get(1).and_then(|match_| match_.as_str().parse::<i32>().ok())
   })
 }
 
@@ -64,6 +63,6 @@ fn extract_number_of_cubes(game_str: &str, color: &str) -> Option<i32> {
   let re = Regex::new(&regex_pattern).unwrap();
 
   re.captures(game_str).and_then(|cap| {
-      cap.get(1).map(|match_| match_.as_str().parse::<i32>().ok()).flatten()
+      cap.get(1).and_then(|match_| match_.as_str().parse::<i32>().ok())
   })
 }

@@ -1,4 +1,3 @@
-use tokio;
 use std::fs::read_to_string;
 
 #[tokio::main]
@@ -45,7 +44,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             // Find a match for the run-on number
             let _match = new_line.find(word);
 
-            if _match != None {
+            if _match.is_some() {
                 let mut contains_a_number = false;
 
                 // Check if the preceeding string slice contains any numbers

@@ -1,4 +1,3 @@
-use tokio;
 use std::fs::read_to_string;
 
 #[tokio::main]
