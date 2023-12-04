@@ -9,9 +9,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
   let mut card_counts  = vec![1; lines.len()];
   
   for (index, line) in lines.iter().enumerate() {
-
-    println!("card counts: {:?}", card_counts);
-
     let parts: Vec<&str> = line
       .split('|')
       .map( |s| s.trim()).collect();
@@ -21,14 +18,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       .map( |s| s.trim())
       .collect();
 
-    winning_numbers.retain(|&x| x != "");
+    winning_numbers.retain(|&x| !x.is_empty());
 
     let mut our_numbers: Vec<&str> = parts[1]
       .split(' ')
       .map( |s| s.trim())
       .collect();
 
-    our_numbers.retain(|&x| x != "");
+    our_numbers.retain(|&x| !x.is_empty());
 
     let mut _match = 0;
 
@@ -39,7 +36,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     for i in 0.._match {
-      println!("i: {i}");
       card_counts[index+i+1] += 1 * card_counts[index];
     }
   }
