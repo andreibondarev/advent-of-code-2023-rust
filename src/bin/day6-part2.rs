@@ -38,7 +38,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
   values_to_be_multiplied.push(upper_bound - lower_bound);
 
-  let answer = values_to_be_multiplied.iter().fold(1, |acc, &x| acc * x);
+  let answer = values_to_be_multiplied.iter().product::<i64>();
 
   println!("Answer: {:?}", answer);
 
